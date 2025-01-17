@@ -55,15 +55,15 @@ public class ModernBankingSystem {
                     String accountNumberDeposit = scanner.nextLine();
                     System.out.print("Enter deposit amount: ");
                     double depositAmount = Double.parseDouble( scanner.nextLine() );
-                    boolean isSuccessful = false;
+                    boolean isDeposited = false;
                     for (int i = 0; i < customerIndex; i++) {
                         if (customers[i].getAccountNumber().equals( accountNumberDeposit.toUpperCase() )){
                             customers[i].deposit( depositAmount );
-                            isSuccessful = true;
+                            isDeposited = true;
                         }
                     }
 
-                    if(!isSuccessful) {
+                    if(!isDeposited) {
                         System.out.println( "Customer not found. Please try again." );
                     }
 
@@ -74,10 +74,16 @@ public class ModernBankingSystem {
                     String accountNumberWithdraw = scanner.nextLine();
                     System.out.print("Enter withdraw amount: ");
                     double withdrawAmount = Double.parseDouble( scanner.nextLine() );
+                    boolean isWithdrawn = false;
                     for (int i = 0; i < customerIndex; i++) {
                         if (customers[i].getAccountNumber().equals( accountNumberWithdraw.toUpperCase() )){
                             customers[i].withdraw( withdrawAmount );
+                            isWithdrawn = true;
                         }
+                    }
+
+                    if(!isWithdrawn) {
+                        System.out.println( "Customer not found. Please try again." );
                     }
 
                     break;
