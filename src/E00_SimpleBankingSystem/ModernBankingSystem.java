@@ -6,7 +6,15 @@ public class ModernBankingSystem {
     public static void main ( String[] args ) {
         Scanner scanner = new Scanner(System.in);
         Customer[] customers = new Customer[10];
-        int customerIndex = 0;
+
+        // mock data
+        customers[0] = new Customer( "John", "ACCT101", 1000 );
+        customers[1] = new Customer( "David", "ACCT102", 2000 );
+
+        int customerIndex = 2;
+
+        double[] transactions = new double[5];  // Array to store transactions
+        int transactionIndex = 0; // Index for storing transactions
 
         int choice; // Variable to store user's choice
 
@@ -26,7 +34,7 @@ public class ModernBankingSystem {
                 case 1: // Create new customer
                     System.out.print("Enter customer's name: ");
                     String name = scanner.nextLine();
-                    System.out.print("Enter customer's DOB: ");
+                    System.out.print("Enter customer's account number: ");
                     String accountNumber = scanner.nextLine();
                     System.out.print("Enter initial balance: ");
                     double balance = Double.parseDouble( scanner.nextLine() );
@@ -43,9 +51,34 @@ public class ModernBankingSystem {
                     break;
 
                 case 3: // Deposit
+                    System.out.print("Enter customer's account number: ");
+                    String accountNumberDeposit = scanner.nextLine();
+                    System.out.print("Enter deposit amount: ");
+                    double depositAmount = Double.parseDouble( scanner.nextLine() );
+                    boolean isSuccessful = false;
+                    for (int i = 0; i < customerIndex; i++) {
+                        if (customers[i].getAccountNumber().equals( accountNumberDeposit.toUpperCase() )){
+                            customers[i].deposit( depositAmount );
+                            isSuccessful = true;
+                        }
+                    }
+
+                    if(!isSuccessful) {
+                        System.out.println( "Customer not found. Please try again." );
+                    }
+
                     break;
 
                 case 4: // Withdraw
+                    System.out.print("Enter customer's account number: ");
+                    String accountNumberWithdraw = scanner.nextLine();
+                    System.out.print("Enter withdraw amount: ");
+                    double withdrawAmount = Double.parseDouble( scanner.nextLine() );
+                    for (int i = 0; i < customerIndex; i++) {
+                        if (customers[i].getAccountNumber().equals( accountNumberWithdraw.toUpperCase() )){
+                            customers[i].withdraw( withdrawAmount );
+                        }
+                    }
 
                     break;
 
@@ -107,5 +140,23 @@ class Customer {
                 ", accountNumber='" + accountNumber + '\'' +
                 ", balance=" + balance +
                 '}';
+    }
+
+    public void deposit (double amount){
+        if (amount < 0){ // data validation
+            System.out.println("Deposit amount cannot be negative. Please try again!");
+        }else {
+            this.balance += amount;
+            System.out.println("Deposit successful!");
+        }
+    }
+
+    public void withdraw (double amount){
+        if (amount < 0 || amount > balance){ // data validation
+            System.out.println("Withdraw amount cannot be negative or greater than balance. Please try again!");
+        }else {
+            this.balance -= amount;
+            System.out.println("Withdraw successful!");
+        }
     }
 }
