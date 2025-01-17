@@ -6,6 +6,7 @@ public class ModernBankingSystem {
     public static void main ( String[] args ) {
         Scanner scanner = new Scanner(System.in);
         Customer[] customers = new Customer[10];
+        int customerIndex = 0;
 
         int choice; // Variable to store user's choice
 
@@ -23,6 +24,15 @@ public class ModernBankingSystem {
 
             switch (choice) {
                 case 1: // Create new customer
+                    System.out.print("Enter customer's name:");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter customer's DOB");
+                    String accountNumber = scanner.nextLine();
+                    System.out.print("Enter initial balance: ");
+                    double balance = Double.parseDouble( scanner.nextLine() );
+
+                    customers[customerIndex] = new Customer(name, "ACCT"+accountNumber, balance);
+                    customerIndex++;
 
                     break;
 
