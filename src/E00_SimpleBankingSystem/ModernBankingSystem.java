@@ -24,9 +24,9 @@ public class ModernBankingSystem {
 
             switch (choice) {
                 case 1: // Create new customer
-                    System.out.print("Enter customer's name:");
+                    System.out.print("Enter customer's name: ");
                     String name = scanner.nextLine();
-                    System.out.print("Enter customer's DOB");
+                    System.out.print("Enter customer's DOB: ");
                     String accountNumber = scanner.nextLine();
                     System.out.print("Enter initial balance: ");
                     double balance = Double.parseDouble( scanner.nextLine() );
@@ -37,6 +37,9 @@ public class ModernBankingSystem {
                     break;
 
                 case 2: // Display all customers
+                    for ( int i = 0; i < customerIndex ; i++ ) {
+                        System.out.println(customers[i]);
+                    }
                     break;
 
                 case 3: // Deposit
@@ -95,5 +98,14 @@ class Customer {
             balance = 0;
         }
         this.balance = balance;
+    }
+
+    @Override
+    public String toString () {
+        return "Customer {" +
+                "name='" + name + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }
