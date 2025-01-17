@@ -1,14 +1,53 @@
 package E00_SimpleBankingSystem;
 
+import java.util.Scanner;
+
 public class ModernBankingSystem {
     public static void main ( String[] args ) {
-        Customer customer1 = new Customer("John", "ACCT1234", 1000);
-        Customer customer2 = new Customer("David", "ACCT1235", 5000);
-        Customer customer3 = new Customer("Lucy", "ACCT1236", -50);
+        Scanner scanner = new Scanner(System.in);
+        Customer[] customers = new Customer[10];
 
-        System.out.println(customer1.getName() + " has a balance of $" + customer1.getBalance());
-        System.out.println(customer2.getName() + " has a balance of $" + customer2.getBalance());
-        System.out.println(customer3.getName() + " has a balance of $" + customer3.getBalance());
+        int choice; // Variable to store user's choice
+
+        do {
+            System.out.println("\nBanking Menu:");
+            System.out.println("1. Create new customer");
+            System.out.println("2. Display all customers");
+            System.out.println("3. Deposit");
+            System.out.println("4. Withdraw");
+            System.out.println("5. Transaction History");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = Integer.parseInt( scanner.nextLine() ) ;
+
+            switch (choice) {
+                case 1: // Create new customer
+
+                    break;
+
+                case 2: // Display all customers
+                    break;
+
+                case 3: // Deposit
+                    break;
+
+                case 4: // Withdraw
+
+                    break;
+
+                case 5: // Transaction History
+                    break;
+
+                case 6: // Exit
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while (choice != 6);
     }
 }
 
