@@ -47,6 +47,7 @@ public class ModernBankingSystem {
                 case 2: // Display all customers
                     for ( int i = 0; i < customerIndex ; i++ ) {
                         System.out.println(customers[i]);
+                        //System.out.println(customers[i].toString());
                     }
                     break;
 
@@ -55,15 +56,16 @@ public class ModernBankingSystem {
                     String accountNumberDeposit = scanner.nextLine();
                     System.out.print("Enter deposit amount: ");
                     double depositAmount = Double.parseDouble( scanner.nextLine() );
-                    boolean isDeposited = false;
+                    boolean isDeposited = false; // variable to check if deposit was successful
                     for (int i = 0; i < customerIndex; i++) {
                         if (customers[i].getAccountNumber().equals( accountNumberDeposit.toUpperCase() )){
                             customers[i].deposit( depositAmount );
-                            isDeposited = true;
+                            isDeposited = true; // set isDeposited to true if deposit was successful
                         }
                     }
 
-                    if(!isDeposited) {
+                    // if deposit was not successful, display error message
+                    if(!isDeposited) { // similar to "isDeposited == false"
                         System.out.println( "Customer not found. Please try again." );
                     }
 
@@ -74,15 +76,16 @@ public class ModernBankingSystem {
                     String accountNumberWithdraw = scanner.nextLine();
                     System.out.print("Enter withdraw amount: ");
                     double withdrawAmount = Double.parseDouble( scanner.nextLine() );
-                    boolean isWithdrawn = false;
+                    boolean isWithdrawn = false; // variable to check if withdraw was successful
                     for (int i = 0; i < customerIndex; i++) {
                         if (customers[i].getAccountNumber().equals( accountNumberWithdraw.toUpperCase() )){
                             customers[i].withdraw( withdrawAmount );
-                            isWithdrawn = true;
+                            isWithdrawn = true; // set isWithdrawn to true if withdraw was successful
                         }
                     }
 
-                    if(!isWithdrawn) {
+                    // if withdraw was not successful, display error message
+                    if(!isWithdrawn) { // similar to "isWithdrawn == false"
                         System.out.println( "Customer not found. Please try again." );
                     }
 
