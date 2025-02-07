@@ -52,17 +52,45 @@ public class ArrayListADT implements AbstractList {
 
     @Override
     public int get ( int index ) {
-        return 0;
+        if (index < 0 || index >= nextIndex ){
+            throw new IndexOutOfBoundsException("Index out of bound.");
+        }
+
+        return elements[index];
     }
 
     @Override
     public int set ( int index, int element ) {
-        return 0;
+        if (index < 0 || index >= nextIndex ){
+            throw new IndexOutOfBoundsException("Index out of bound.");
+        }
+
+        int oldElement = elements[index];
+
+        elements[index] = element;
+        return oldElement;
     }
 
     @Override
     public int remove ( int index ) {
-        return 0;
+        if (index < 0 || index >= nextIndex ){
+            throw new IndexOutOfBoundsException("Index out of bound.");
+        }
+
+        int oldElement = elements[index];
+
+        // shift remain elements to the left
+        for(int i = index; i < nextIndex - 1; i++){
+            elements[i] = elements[ i+1 ];
+        }
+        elements[nextIndex-1] = 0;
+        nextIndex--;
+
+        if (nextIndex < elements.length / 3){
+            elements = Arrays.copyOf( elements, elements.length / 2 );
+        }
+
+        return oldElement;
     }
 
     @Override
@@ -96,6 +124,17 @@ class ArrayListADTRunner{
         myArrayList.add( 50 );
 
         myArrayList.add( 2, 60 );
+
+        System.out.println(myArrayList.get(2));
+
+        myArrayList.set(2, 80);
+
+        System.out.println(myArrayList.get(2));
+
+        myArrayList.remove(0);
+        myArrayList.remove(0);
+        myArrayList.remove(0);
+        myArrayList.remove(0);
 
     }
 }
