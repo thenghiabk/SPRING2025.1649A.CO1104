@@ -95,21 +95,36 @@ public class ArrayListADT implements AbstractList {
 
     @Override
     public int size () {
-        return 0;
+        return nextIndex;
     }
 
     @Override
     public int indexOf ( int element ) {
-        return 0;
+        for (int i = 0; i < nextIndex; i++){
+            if (elements[i] == element){
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
     public boolean contains ( int element ) {
+        for (int item : elements){
+            if (item == element){
+                return true;
+            }
+        }
+
         return false;
     }
 
     @Override
     public boolean isEmpty () {
+        if (nextIndex == 0){
+            return true;
+        }
         return false;
     }
 }
