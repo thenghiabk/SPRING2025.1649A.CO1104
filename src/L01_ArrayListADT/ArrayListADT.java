@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class ArrayListADT<E> implements AbstractList<E> {
 
     // attributes
-    private int[] elements; // stored in the stack memory
+    private E[] elements; // stored in the stack memory
     int nextIndex;
 
     // constructor
     public ArrayListADT(){
-        elements = new int[5];
+        elements = (E[]) new Object[5];
         nextIndex = 0;
     }
 
@@ -131,7 +131,7 @@ public class ArrayListADT<E> implements AbstractList<E> {
 
 class ArrayListADTRunner{
     public static void main ( String[] args ) {
-        ArrayListADT myArrayList = new ArrayListADT();
+        ArrayListADT<Integer> myArrayList = new ArrayListADT<>();
         myArrayList.add( 10 );
         myArrayList.add( 20 );
         myArrayList.add( 30 );
