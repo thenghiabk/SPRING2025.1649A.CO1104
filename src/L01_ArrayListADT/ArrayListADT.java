@@ -2,7 +2,7 @@ package L01_ArrayListADT;
 
 import java.util.Arrays;
 
-public class ArrayListADT implements AbstractList {
+public class ArrayListADT<E> implements AbstractList<E> {
 
     // attributes
     private int[] elements; // stored in the stack memory
