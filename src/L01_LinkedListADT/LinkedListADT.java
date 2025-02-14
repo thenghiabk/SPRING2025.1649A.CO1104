@@ -2,29 +2,41 @@ package L01_LinkedListADT;
 
 public class LinkedListADT<E> implements AbtractLinkedList<E> {
     private Node head;
+    private int size;
 
     // constructor
     public LinkedListADT(){
         this.head = null;
+        this.size = 0;
     }
 
     @Override
     public void addFirst ( E element ) {
         Node newNode = new Node( element );
 
-        if (head == null){
-            head = newNode;
-        } else {
+        if (this.head != null){
             newNode.next = head;
-            head = newNode;
         }
 
-
+        this.head = newNode;
+        this.size++;
     }
 
     @Override
     public void addLast ( E element ) {
+        Node newNode = new Node( element );
 
+        if (this.head == null){
+            this.head = newNode;
+        } else {
+            Node current = this.head;
+            while (current.next != null){
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+
+        this.size++;
     }
 
     private class Node {
