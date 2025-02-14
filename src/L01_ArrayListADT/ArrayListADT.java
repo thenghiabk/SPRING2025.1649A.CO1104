@@ -128,6 +128,37 @@ public class ArrayListADT<E> implements AbstractList<E> {
         }
         return false;
     }
+
+    @Override
+    public String toString () {
+        // for example, elements -> [10, 20, 30, 40, 50]
+
+        // option 1
+        //String result = "[";
+        //
+        //for (int i = 0; i < nextIndex; i++){
+        //    result += elements[i];
+        //
+        //    if (i < nextIndex - 1){
+        //        result += ", ";
+        //    }
+        //}
+        //
+        //result += "]";
+
+        // option 2
+        StringBuilder result = new StringBuilder();
+        result.append( "[" );
+        for (int i = 0; i < nextIndex; i++){
+            result.append( elements[i] );
+            if (i < nextIndex - 1){
+                result.append( ", " );
+            }
+        }
+        result.append( "]" );
+
+        return result.toString();
+    }
 }
 
 class ArrayListADTRunner{
@@ -139,25 +170,27 @@ class ArrayListADTRunner{
         myArrayList.add( 40 );
         myArrayList.add( 50 );
 
-        myArrayList.add( 2, 60 );
+        myArrayList.add( 2, 60 ); // [10, 20, 60, 30, 40, 50]
 
         System.out.println(myArrayList.get(2)); // 60
 
-        myArrayList.set(2, 80);
+        myArrayList.set(2, 80); // [10, 20, 80, 30, 40, 50]
 
         System.out.println(myArrayList.get(2)); // 80
 
         myArrayList.remove(0);
-        myArrayList.remove(0);
-        myArrayList.remove(0);
-        myArrayList.remove(0);
 
-        ArrayListADT<String> myStringArrayList = new ArrayListADT<>();
-        myStringArrayList.add("Hello");
-        myStringArrayList.add("World");
+        System.out.println( myArrayList ); // [20, 80, 30, 40, 50]
 
-        System.out.println(myStringArrayList.get(0)); // Hello
-        System.out.println(myStringArrayList.get(1)); // World
+        //ArrayListADT<String> myStringArrayList = new ArrayListADT<>();
+        //myStringArrayList.add("Hello");
+        //myStringArrayList.add("World");
+        //
+        //System.out.println(myStringArrayList.get(0)); // Hello
+        //System.out.println(myStringArrayList.get(1)); // World
+        //
+        //System.out.println(myStringArrayList.indexOf( "World" )); // 1
+        //System.out.println(myStringArrayList.contains( "World" )); // true
 
     }
 }
