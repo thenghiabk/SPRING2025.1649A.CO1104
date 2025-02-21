@@ -137,7 +137,6 @@ public class LinkedListADT<E> implements AbtractLinkedList<E> {
             tempNode = tempNode.next;
         }
 
-
         result.append( "]" );
 
         return result.toString();
