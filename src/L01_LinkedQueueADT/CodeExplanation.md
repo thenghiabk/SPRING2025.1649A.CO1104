@@ -140,4 +140,43 @@ class LinkedQueueADTRunner {
         // System.out.println(myQueue.poll());
 
         // Add elements to the queue
-       
+        myQueue.offer( 10 );
+        myQueue.offer( 20 );
+        myQueue.offer( 30 );
+        myQueue.offer( 40 );
+
+        // Print the queue after adding elements
+        System.out.println("Queue after adding elements: " + myQueue); // It must print [10, 20, 30, 40]
+
+        // prints the element at the top of the queue
+        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+        // prints the element at the top of the queue
+        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+        // prints the element at the top of the queue
+        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+
+        // prints the element at the top of the queue and removes it
+        System.out.println("The element at top of queue: " + myQueue.poll()); // It must print 10
+        // prints the element at the top of the queue and removes it
+        System.out.println("The element at top of queue: " + myQueue.poll()); // It must print 20
+
+        // prints the number of elements in the queue
+        System.out.println(myQueue.size()); // It must print 2
+
+    }
+}
+```
+
+This class is used to test the functionality of the `LinkedQueueADT` class. Here's what's happening:
+
+1. We create a new instance of `LinkedQueueADT` called `myQueue`.
+2. We check if the queue is empty using the `isEmpty()` method. Since we just created the queue, it should be empty.
+3. We try to poll an element from the empty queue. This should throw an `IllegalStateException`.
+4. We add four elements to the queue using the `offer()` method.
+5. We print the queue after adding elements. This should print `[10, 20, 30, 40]`.
+6. We use the `peek()` method to print the element at the top of the queue. This should print `10`.
+7. We use the `poll()` method to remove and print the element at the top of the queue. This should print `10`.
+8. We repeat step 7 to remove and print the next element at the top of the queue. This should print `20`.
+9. We print the number of elements in the queue using the `size()` method. This should print `2`.
+
+This class is a simple test driver that exercises the functionality of the `LinkedQueueADT` class.
