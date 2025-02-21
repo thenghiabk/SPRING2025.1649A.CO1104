@@ -96,6 +96,53 @@ public class LinkedListADT<E> implements AbtractLinkedList<E> {
         return oldElement;
     }
 
+    @Override
+    public E getFirst () {
+        if (this.head == null && this.tail == null){
+            throw new IllegalStateException("The list is empty.");
+        }
+        return this.head.element;
+    }
+
+    @Override
+    public E getLast () {
+        if (this.head == null && this.tail == null){
+            throw new IllegalStateException("The list is empty.");
+        }
+        return this.tail.element;
+    }
+
+    @Override
+    public int size () {
+        return this.size;
+    }
+
+    @Override
+    public boolean isEmpty () {
+        return (this.head == null && this.tail == null);
+    }
+
+    @Override
+    public String toString () {
+        StringBuilder result = new StringBuilder();
+        result.append( "[" );
+
+        Node tempNode = this.head;
+        while(tempNode != null){
+            result.append( tempNode.element );
+            if(tempNode.next != null){
+                result.append( ", " );
+            }
+
+            tempNode = tempNode.next;
+        }
+
+
+        result.append( "]" );
+
+        return result.toString();
+    }
+
     private class Node {
         // data
         private E element;
@@ -121,5 +168,16 @@ class LinkedListADTRunner{
         myLinkedList.addLast( 60 );
 
         System.out.println(myLinkedList.removeFirst()); // 40
+
+        System.out.println(myLinkedList.isEmpty()); // false
+
+        System.out.println(myLinkedList.getFirst()); // 30
+
+        System.out.println(myLinkedList.removeLast()); // 60
+
+        System.out.println(myLinkedList.getLast()); // 50
+
+        System.out.println(myLinkedList);
+
     }
 }
