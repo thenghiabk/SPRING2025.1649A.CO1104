@@ -9,8 +9,13 @@ package L01_LinkedQueueADT;
  */
 
 public class LinkedQueueADT<E> implements AbstractLinkedQueue<E> {
+    // Reference to the first node in the queue
     private Node head;
+
+    // Reference to the last node in the queue
     private Node tail;
+
+    // The current number of elements in the queue
     private int size;
 
     // constructor
@@ -135,7 +140,7 @@ public class LinkedQueueADT<E> implements AbstractLinkedQueue<E> {
      */
     private class Node {
         // data
-        private E element;
+        private E element; // the actual element stored in the node
         private Node next;
 
         // constructor
@@ -157,7 +162,7 @@ class LinkedQueueADTRunner {
 
         // What happens when we try to poll an empty queue?
         // It must throw an IllegalStateException in thread "main" java.lang.IllegalStateException: The queue is empty.
-        // System.out.println(myQueue.poll());
+        // System.out.println(myQueue.poll()); // uncomment this line to see the exception
 
         // Add elements to the queue
         myQueue.offer( 10 );
@@ -169,16 +174,16 @@ class LinkedQueueADTRunner {
         System.out.println("Queue after adding elements: " + myQueue); // It must print [10, 20, 30, 40]
 
         // prints the element at the top of the queue
-        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+        System.out.println("The element at the top of queue: " + myQueue.peek()); // It must print 10
         // prints the element at the top of the queue
-        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+        System.out.println("The element at the top of queue: " + myQueue.peek()); // It must print 10
         // prints the element at the top of the queue
-        System.out.println("The element at top of queue: " + myQueue.peek()); // It must print 10
+        System.out.println("The element at the top of queue: " + myQueue.peek()); // It must print 10
 
         // prints the element at the top of the queue and removes it
-        System.out.println("The element at top of queue: " + myQueue.poll()); // It must print 10
+        System.out.println("The element at the top of queue: " + myQueue.poll()); // It must print 10
         // prints the element at the top of the queue and removes it
-        System.out.println("The element at top of queue: " + myQueue.poll()); // It must print 20
+        System.out.println("The element at the top of queue: " + myQueue.poll()); // It must print 20
 
         // prints the number of elements in the queue
         System.out.println(myQueue.size()); // It must print 2
