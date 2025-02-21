@@ -63,6 +63,26 @@ public class LinkedStackADT<E> implements AbstractLinkedStack<E> {
         return (this.top == null);
     }
 
+    @Override
+    public String toString () {
+        StringBuilder result = new StringBuilder();
+        result.append( "[" );
+
+        Node tempNode = this.top;
+        while(tempNode != null){
+            result.append( tempNode.element );
+            if(tempNode.next != null){
+                result.append( ", " );
+            }
+
+            tempNode = tempNode.next;
+        }
+
+        result.append( "]" );
+
+        return result.toString();
+    }
+
     private class Node {
         // data
         private E element;
