@@ -1,3 +1,16 @@
+In object-oriented programming (OOP), it's a common practice to define an interface before creating a class that 
+implements it.
+
+An interface defines a contract or a set of methods that a class must implement. By defining an interface first, you can:
+
+1. Clearly define the required methods and their signatures.
+2. Ensure that any class that implements the interface provides the necessary functionality.
+3. Decouple the interface from the implementation, making it easier to change or replace the implementation without affecting other parts of the code.
+
+In the case of the `LinkedQueueADT` class, the `AbstractLinkedQueue` interface is likely defined elsewhere in the codebase, and the `LinkedQueueADT` class is implementing that interface.
+
+If you didn't have an existing interface, you could create the `LinkedQueueADT` class without an interface, and it would still work. However, by using an interface, you're following good OOP practices and making your code more maintainable and flexible.
+
 Let's break down the code into smaller sections and go through each part step by step.
 
 **Section 1: Class Definition and Constructor**
