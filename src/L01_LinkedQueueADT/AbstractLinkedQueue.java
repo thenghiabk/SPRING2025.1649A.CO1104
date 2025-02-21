@@ -1,24 +1,5 @@
 package L01_LinkedQueueADT;
 
-/**
- * Why do we need an interface?
- *
- * An interface is a contract. It sets a standard for classes that implements it.
- * It provides a way to define a blueprint of methods, without having to write the
- * implementation of them. This allows for classes to be more flexible and
- * reusable. And, it makes the code more readable and maintainable.
- *
- * In this case, AbstractLinkedQueue is an interface that defines the contract for
- * a linked queue data structure. It provides the methods that must be implemented
- * by any class that implements it. This allows for different classes to implement
- * the queue data structure in their own way, but ensure that they provide the same
- * functionality and behavior.
- *
- * For example, one class may implement the queue using a linked list, while
- * another class may implement it using an array. As long as they implement the
- * AbstractLinkedQueue interface, they will both provide the same methods and
- * behavior, even though they may be implemented differently.
- */
 public interface AbstractLinkedQueue<E> {
     /**
      * Adds an element at the end of the queue and increases the size.
