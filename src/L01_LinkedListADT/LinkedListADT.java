@@ -2,11 +2,13 @@ package L01_LinkedListADT;
 
 public class LinkedListADT<E> implements AbtractLinkedList<E> {
     private Node head;
+    private Node tail;
     private int size;
 
     // constructor
     public LinkedListADT(){
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
@@ -14,11 +16,15 @@ public class LinkedListADT<E> implements AbtractLinkedList<E> {
     public void addFirst ( E element ) {
         Node newNode = new Node( element );
 
-        if (this.head != null){
-            newNode.next = head;
+        // if list is empty
+        if (this.head == null && this.tail == null){
+            this.head = newNode;
+            this.tail = newNode;
+        } else { // if list is not empty
+            newNode.next = this.head;
+            this.head = newNode;
         }
 
-        this.head = newNode;
         this.size++;
     }
 
@@ -26,14 +32,13 @@ public class LinkedListADT<E> implements AbtractLinkedList<E> {
     public void addLast ( E element ) {
         Node newNode = new Node( element );
 
-        if (this.head == null){
+        // if list is empty
+        if (this.head == null && this.tail == null){
             this.head = newNode;
-        } else {
-            Node tempNode = this.head;
-            while (tempNode.next != null){
-                tempNode = tempNode.next; // move to next node
-            }
-            tempNode.next = newNode; // add new node
+            this.tail = newNode;
+        } else { // if list is not empty
+            this.tail.next = newNode;
+            this.tail = newNode;
         }
 
         this.size++;
@@ -43,15 +48,49 @@ public class LinkedListADT<E> implements AbtractLinkedList<E> {
     public E removeFirst () {
 
         // if list is empty
-        if (this.head == null){
+        if (this.head == null && this.tail == null){
             throw new IllegalStateException("The list is empty.");
         }
 
-        // if list is not empty
         E oldElement = this.head.element;
-        Node tempNode = this.head;
-        this.head = this.head.next;
-        tempNode.next = null;
+
+        // if list has only one element
+        if (this.head == this.tail){
+            this.head = null;
+            this.tail = null;
+        } else { // if list has more than one element
+            Node tempNode = this.head;
+            this.head = this.head.next;
+            tempNode.next = null;
+        }
+
+        this.size--;
+
+        return oldElement;
+    }
+
+    @Override
+    public E removeLast () {
+        if (this.head == null && this.tail == null){
+            throw new IllegalStateException("The list is empty.");
+        }
+
+        E oldElement = this.tail.element;
+
+        // if list has only one element
+        if (this.head == this.tail) {
+            this.head = null;
+            this.tail = null;
+        } else { // if list has more than one element
+            Node tempNode = this.head;
+            while (tempNode.next != this.tail) {
+                tempNode = tempNode.next;
+            }
+
+            tempNode.next = null;
+            this.tail = tempNode;
+
+        }
         this.size--;
 
         return oldElement;

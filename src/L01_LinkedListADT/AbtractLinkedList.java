@@ -5,5 +5,6 @@ public interface AbtractLinkedList<E> {
     void addLast(E element); // adds an element after the last element of the collection and increases the size.
     E removeFirst (); // removes and returns the first element of the collection if there is such if no then throw
     // IllegalStateException with appropriate message.
-
+    E removeLast (); // removes and returns the last element of the collection if there is such if no then throw
+    // IllegalStateException with appropriate message.
 }
