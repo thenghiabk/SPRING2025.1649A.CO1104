@@ -235,4 +235,3 @@ private class Node {
 
 This section defines a private inner class `Node` to represent a node in the linked list. Each node has two fields: `element` to store the actual element, and `next` to point to the next node in the list. The `Node` class has a constructor to initialize the `element` field and set the `next` field to `null`.
 
-This concludes the explanation of the `LinkedListADT` class. The class provides a basic implementation of a singly-linked list with methods for adding, removing, and accessing elements, as well as checking the size and emptiness of the list. The `Node` class is used to represent individual nodes in the linked list.
