@@ -3,14 +3,17 @@ package L02_AlgorithmAnalysis;
 public class ExecutionTimeMeasurement {
     public static void main(String[] args) {
 
-        int numOfLoop = 50000;
+        //System.out.println(repeat1( "A", 50000 ));
+        //System.out.println(repeat2( "A", 50000 ));
+
+        int numOfLoop = 50_000;
         long startTime = System.currentTimeMillis(); // get timestamps
         /* algorithm */
-        // repeat1( "A", numOfLoop );
-        repeat2("A", numOfLoop);
+         repeat1("A", numOfLoop);
+        //repeat2("A", numOfLoop);
         long endTime = System.currentTimeMillis(); // get timestamps
 
-        long elapsedTime = endTime - startTime; // nanosecond
+        long elapsedTime = endTime - startTime; // milliseconds
 
         System.out.println("Execution time: " + elapsedTime + " (ms).");
     }
