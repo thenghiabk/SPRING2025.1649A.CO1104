@@ -21,9 +21,9 @@ public class GuessingGame {
         }
 
         if ( guessed > target )
-            System.out.println( "It should lower." );
+            System.out.println( "It should be lower." );
         else
-            System.out.println( "It should higher." );
+            System.out.println( "It should be higher." );
         System.out.println( "Please guess another number." );
 
         guessed = sc.nextInt( ); // new guess
