@@ -1,18 +1,12 @@
 public class CodeBuddy {
     public static void main(String[] args) {
-        printItems( 3 );
+        sayHello();
     }
 
-    public static void printItems(int item) {
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
-        System.out.println(item);
+    private static void sayHello(){
+        System.out.println("Hello");
+
+        sayHello();
     }
+
 }
