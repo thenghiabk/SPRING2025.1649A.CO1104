@@ -22,7 +22,7 @@ public class QuickSort {
         int boundary = start - 1;
 
         for(int i = start; i <= end; i++) {
-            if(array[i] < pivot){
+            if(array[i] <= pivot){
                 boundary++;
 
                 // swap two elements
